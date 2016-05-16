@@ -6,7 +6,7 @@ class RegistrationsController < ApplicationController
   	@user = User.new(params_user)
   
   	if @user.save
-  		redirect_to root
+  		redirect_to :root
   	else
   		render :new
   	end
