@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+
   resources :users
   resource :registrations, only: [:new, :create]
   resource :sessions, only: [:new, :create, :destroy]
+  resource :settings, only: [:edit, :update]
   root to: 'registrations#new'
+  resources :tweets
 
   resources :users, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.

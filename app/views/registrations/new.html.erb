@@ -3,7 +3,13 @@
 		<h1>かますぜ</h1>
 		<p class="px">新田が作る</p>
 		<p class="by">ういいいいいいいいい</p>
+		<% if notice%>
+	<p class="alert alert-info">
+		<%=notice%>
+	</p>
+	<% end %>	
 	</div>
+
 	<div class="col-xs-6 right-content">
 
 	<%= form_for @user, url: registrations_path, method: :post do |f|%>
@@ -21,11 +27,11 @@
 	</div>
 	<div class="form-group">
 		<%= f.label :password, "パスワード", class: "control-label"%>
-		<%= f.text_field :password, class: "form-control"%>		
+		<%= f.password_field :password, class: "form-control"%>		
 	</div>
 	<div class="form-group">
 		<%= f.label :password_confirmation, "確認用パスワード", class: "control-label"%>
-		<%= f.text_field :password_confirmation, class: "form-control"%>		
+		<%= f.password_field :password_confirmation, class: "form-control"%>		
 	</div>
 	<div class="form-group">
 		<%= f.submit "登録する", class: "btn btn-warning"%>	
