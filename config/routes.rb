@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
   resource :settings, only: [:edit, :update]
   root to: 'registrations#new'
-  resources :tweets
+  resources :tweets do
+    resource :favorites, only:[:create, :destroy]
+  end
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+   get :favorites, on: :member
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
