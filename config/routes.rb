@@ -8,10 +8,14 @@ Rails.application.routes.draw do
   root to: 'registrations#new'
   resources :tweets do
     resource :favorites, only:[:create, :destroy]
+    get :timeline, on: :collection
   end
 
   resources :users, only: [:index, :show] do
-   get :favorites, on: :member
+    resource :follows, only: [:create, :destroy]
+    get :favorites, on: :member
+    get :follows, on: :member
+    get :followers, on: :member
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

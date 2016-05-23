@@ -8,6 +8,6 @@ class Tweet < ActiveRecord::Base
 
 
 	def favorited_by? user
-		favorites.where(user_id: user.id).exists?
+		favorites.where(user_id: user.try(:id)).exists?
 	end
 end
