@@ -18,5 +18,4 @@ class User < ActiveRecord::Base
 	def followed_by? user
 		inverse_follows.where(follower_id: user.try(:id)).exists?
 	end
-	
 end
