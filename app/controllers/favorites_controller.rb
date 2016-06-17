@@ -4,7 +4,6 @@ class FavoritesController < ApplicationController
  def create
  	@tweet = Tweet.find(params[:tweet_id])
  	@favorite = current_user.favorites.build(tweet: @tweet)
-
  	if @favorite.save
  		redirect_to request.referer, notice: "お気に入りを登録しました"
  	else
